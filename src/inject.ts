@@ -14,7 +14,7 @@ const run = async () => {
     [e in Editor]: (repo: string, file: string, line?: string) => string
   } = {
     cursor: (repo: string, file: string, line?: string) => {
-      const url = `cursor://open?file=${OPTIONS.localPathForRepositories}/${repo}/${file}&line=${line ?? "1"}`
+      const url = `cursor://file/${OPTIONS.localPathForRepositories}/${repo}/${file}:${line ?? "1"}`
       location.href = url
       return url
     },
