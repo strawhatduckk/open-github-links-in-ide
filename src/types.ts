@@ -1,4 +1,5 @@
 export type Editor =
+  | "cursor"
   | "vscode"
   | "vscode-wsl"
   | "vscodium"
@@ -17,6 +18,10 @@ type IconSize = 16 | 32 | 48 | 64 | 128
 export const EDITORS: {
   [e in Editor]: { name: string; getIcon: (size: IconSize) => string }
 } = {
+  cursor: {
+    name: "Cursor",
+    getIcon: (size: IconSize) => `icons/cursor${size}.png`,
+  },
   vscode: {
     name: "VS Code",
     getIcon: (size: IconSize) => `icons/vscode${size}.png`,

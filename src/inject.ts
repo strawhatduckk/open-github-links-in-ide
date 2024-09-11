@@ -13,6 +13,11 @@ const run = async () => {
   const EDITOR_OPENERS: {
     [e in Editor]: (repo: string, file: string, line?: string) => string
   } = {
+    cursor: (repo: string, file: string, line?: string) => {
+      const url = `cursor://open?file=${OPTIONS.localPathForRepositories}/${repo}/${file}&line=${line ?? "1"}`
+      location.href = url
+      return url
+    },
     vscode: (repo: string, file: string, line?: string) => {
       const url = `vscode://file/${OPTIONS.localPathForRepositories}/${repo}/${file}:${line ?? "1"}`
       location.href = url
